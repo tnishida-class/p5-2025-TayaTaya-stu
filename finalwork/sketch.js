@@ -7,7 +7,7 @@ let enemyVX = 3;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  enemyX = width / 2; // 敵の初期 x 座標
+  enemyX = width / 2; // 敵の初期の x 座標
 }
 
 function windowResized() {
