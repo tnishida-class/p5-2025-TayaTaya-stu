@@ -25,8 +25,8 @@ function mouseDragged() {
 
 function draw() {
   background(160, 192, 255);
-   fill(0);             
-  textSize(24);         
+  fill(0);
+  textSize(24);
   text("ドラッグで30回アフロちゃんに愛の玉を届けよう！Enterキーでやり直し", 200, 50);
 
   // 敵の移動
@@ -36,31 +36,31 @@ function draw() {
   }
 
   // 敵の髪と顔
-  let eyeY =height / 5 + s / 4
+  let eyeY = height / 5 + s / 4
   fill(100, 50, 0); // 髪
   ellipse(enemyX, height / 5, s);
 
   fill(255);
-  rect(enemyX-s/8,eyeY-s/10,s/8,s/16);
+  rect(enemyX - s / 8, eyeY - s / 10, s / 8, s / 16);
 
 
   fill(255, 200, 200); // 顔
   ellipse(enemyX, height / 5 + s / 4, s / 2);
-   
+
   fill(0);
-  ellipse(enemyX-s/8,eyeY,s/8); //目
-  ellipse(enemyX+s/8,eyeY,s/8);
-  fill(255,0,0);//口
-  triangle(enemyX-s/10,eyeY+s/8,enemyX+s/10,eyeY+s/8,enemyX,eyeY+s/6);
- fill(255);//白目
-  ellipse(enemyX-s/8,eyeY,s/16);
-  ellipse(enemyX+s/8,eyeY,s/16);
-fill(255,105,180);//ほっぺ
-  ellipse(enemyX-s/6,eyeY+s/10,s/8,s/16);
-  ellipse(enemyX+s/6,eyeY+s/10,s/8,s/16);
+  ellipse(enemyX - s / 8, eyeY, s / 8); //目
+  ellipse(enemyX + s / 8, eyeY, s / 8);
+  fill(255, 0, 0);//口
+  triangle(enemyX - s / 10, eyeY + s / 8, enemyX + s / 10, eyeY + s / 8, enemyX, eyeY + s / 6);
+  fill(255);//白目
+  ellipse(enemyX - s / 8, eyeY, s / 16);
+  ellipse(enemyX + s / 8, eyeY, s / 16);
+  fill(255, 105, 180);//ほっぺ
+  ellipse(enemyX - s / 6, eyeY + s / 10, s / 8, s / 16);
+  ellipse(enemyX + s / 6, eyeY + s / 10, s / 8, s / 16);
 
 
- if (hitCount < hitMax) {
+  if (hitCount < hitMax) {
     s += 0.5;
     s = constrain(s, 20, width);
   }
@@ -73,23 +73,23 @@ fill(255,105,180);//ほっぺ
   }
 
   // プレイヤー
-  fill(255,100, 150);
+  fill(255, 100, 150);
   noStroke();
-  const cx1=mouseX-15;//左の丸の中心ｘ
+  const cx1 = mouseX - 15;//左の丸の中心ｘ
   const cy1 = mouseY;
   const cx2 = mouseX + 15;//右の丸の中心ｘ
   const cy2 = mouseY;
   ellipse(cx1, cy1, 40);
   ellipse(cx2, cy2, 40);
-  
-  triangle(cx1-15,cy1+13,cx2+15,cy2+13,mouseX,mouseY+40);
+
+  triangle(cx1 - 15, cy1 + 13, cx2 + 15, cy2 + 13, mouseX, mouseY + 40);
 
 
   // ボールの描画と移動
-  
+
   for (let i = 0; i < balls.length; i++) {
     let b = balls[i];
-    fill(b.hit ? color(255, 0, 0) : color(255)); 
+    fill(b.hit ? color(255, 0, 0) : color(255));
     ellipse(b.x, b.y, b.size);
     b.x += b.vx;
     b.y += b.vy;
@@ -106,13 +106,13 @@ fill(255,105,180);//ほっぺ
     let faceX = enemyX;
     let faceY = height / 5 + s / 4;
     let faceR = s / 4;
-    hit=dist(b.x, b.y, faceX, faceY) < faceR + b.size / 2
-    if (!b.hit &&hit) {
+    hit = dist(b.x, b.y, faceX, faceY) < faceR + b.size / 2
+    if (!b.hit && hit) {
       b.hit = true;
       hitCount++;
-      
-      
-      
+
+
+
     }
   }
 
@@ -122,7 +122,7 @@ fill(255,105,180);//ほっぺ
     textSize(32);
     textAlign(CENTER, CENTER);
     text("愛が届いた!", width / 2, height / 2);
-    enemyX=width/2;
+    enemyX = width / 2;
   }
 }
 
