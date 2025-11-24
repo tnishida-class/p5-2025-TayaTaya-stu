@@ -66,12 +66,6 @@ function draw() {
   }
 
 
-  // 敵の成長
-  if (hitCount < hitMax) {
-    s += 0.05;
-    s = constrain(s, 20, width / 2);
-  }
-
   // プレイヤー
   fill(255, 100, 150);
   noStroke();
